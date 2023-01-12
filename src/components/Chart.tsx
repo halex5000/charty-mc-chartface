@@ -6,7 +6,7 @@ function rando(min: number, max: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-const maxLength = 10;
+const duration = 300;
 
 const addAndShift = (data: {x: number; y: number}[], flagValue: boolean) => {
   const min = flagValue ? 2 : 13
@@ -34,7 +34,7 @@ const Chart = ({data, updateData}: {data: {x: number; y: number}[]; updateData: 
         interpolation="natural"
         animate={{
           easing: "linear", 
-          duration: 300,
+          duration: duration,
           onEnd: () => {
             const newData = addAndShift(data, flagValue)
             updateData(newData);
